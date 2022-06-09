@@ -9,6 +9,7 @@ import OrderView from './views/orderView';
 import ProductView from './views/productView';
 import SearchView from './views/searchView';
 import HomeView from './views/homeView';
+import Layout from './components/layout';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

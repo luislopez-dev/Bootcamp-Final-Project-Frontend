@@ -3,7 +3,7 @@ import axios from "axios";
 class ProductService {
     
     private api_url;
-
+r
     async all(){
         await axios.get(`${this.api_url}/products`)
     }

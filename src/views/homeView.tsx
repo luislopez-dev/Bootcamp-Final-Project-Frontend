@@ -1,8 +1,11 @@
-import { Button, Card, CardActions, CardContent, CardHeader, CardMedia, IconButton, Typography } from "@mui/material";
+import { AddShoppingCart } from "@mui/icons-material";
+import { Card, CardActions, CardContent, CardHeader, CardMedia, IconButton, Typography } from "@mui/material";
+import NavBarComponent from "../components/navBarComponent";
 
 const HomeView = () => {
     return (
     <div>
+      <NavBarComponent />
         <Card sx={{ maxWidth: 345 }}>
           <CardHeader title="Header" />
           <CardMedia 
@@ -15,7 +18,7 @@ const HomeView = () => {
           </CardContent>
           <CardActions>
             <IconButton>
-              
+              <AddShoppingCart />
             </IconButton>
           </CardActions>
         </Card>
