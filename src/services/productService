@@ -1,0 +1,26 @@
+import axios from "axios";
+
+class ProductService {
+    
+    private api_url;
+
+    async all(){
+        await axios.get(`${this.api_url}/products`)
+    }
+    
+    async delete(){
+        await axios.delete(`${this.api_url}`);
+    }
+
+    async update(){
+        await axios.put(`${this.api_url}`);
+    }
+
+    async find(id:String){
+        await axios.get(`${this.api_url}/${id}`);
+    }
+    async create(){
+        await axios.post(`${this.api_url}`);
+    }
+
+}
