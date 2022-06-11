@@ -1,27 +1,59 @@
-import { AddShoppingCart } from "@mui/icons-material";
-import { Card, CardActions, CardContent, CardHeader, CardMedia, IconButton, Typography } from "@mui/material";
-import NavBarComponent from "../components/navBarComponent";
+import { Add, Favorite, Share } from "@mui/icons-material";
+import { Card, CardActionArea, CardActions, CardContent, CardMedia, Chip, IconButton, Typography } from "@mui/material";
+import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import { ProductService } from "../services/productService";
 
 const HomeView = () => {
+
+    const [products, setProducts] = useState<any[]>([]);
+    const productService = new ProductService();
+
+    useEffect(() => {
+      productService.all().then( (res) => { setProducts(res.data); console.log(res.data) });
+    }, []);
+
     return (
     <div>
-      <NavBarComponent />
-        <Card sx={{ maxWidth: 345 }}>
-          <CardHeader title="Header" />
-          <CardMedia 
-            image="https://carpacciorestaurante.com/wp-content/uploads/2020/05/cocacola.jpg" 
-            component="img"
-            height="140"         
-          />
-          <CardContent>
-            <Typography>ijhghihhoi</Typography>
+      {
+
+        products.map((product, index) => 
+
+          <Card key={index} sx={{ maxWidth: 200}}>   
+          <CardActionArea href="https://facebook.com">     
+          <CardMedia
+            image={product.img} 
+            component="img"                  
+           />
+          </CardActionArea>
+          <CardContent>           
+            <Typography gutterBottom variant="h6" component="div">
+              <strong>${product.price}</strong>
+            </Typography>
+            <Typography gutterBottom variant="h6" component="div">
+              {product.name}
+            </Typography>
           </CardContent>
           <CardActions>
             <IconButton>
-              <AddShoppingCart />
+              <Favorite />
+            </IconButton>
+            <Chip clickable icon={<Add />} label="Add" />
+            {/* <ButtonGroup size="small" aria-label="outlined primary button group">
+              <Button><Add /></Button>
+              <Button>10</Button>
+              <Button><Remove /></Button>
+            </ButtonGroup> */}
+            <IconButton>
+              <Share />
             </IconButton>
           </CardActions>
         </Card>
+        
+        )
+
+      }
     </div>)
 }
 

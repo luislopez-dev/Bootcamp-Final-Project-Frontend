@@ -1,11 +1,15 @@
 import axios from "axios";
 
-class ProductService {
+export class ProductService {
     
-    private api_url;
-r
+    private api_url:String;
+
+    constructor(){
+        this.api_url = "http://localhost:3004";
+    }
+
     async all(){
-        await axios.get(`${this.api_url}/products`)
+        return await axios.get(`${this.api_url}/products`);        
     }
     
     async delete(){

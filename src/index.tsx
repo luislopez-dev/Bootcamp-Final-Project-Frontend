@@ -10,6 +10,7 @@ import ProductView from './views/productView';
 import SearchView from './views/searchView';
 import HomeView from './views/homeView';
 import Layout from './components/layout';
+import TestView from './views/testView';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -23,6 +24,7 @@ root.render(
       <Route path='order' element={<OrderView />} />
       <Route path='product/:id' element={<ProductView />} />
       <Route path='search' element={<SearchView />} />
+      <Route path='test' element={<TestView />} />
     </Routes>
     </BrowserRouter>    
   </React.StrictMode>
