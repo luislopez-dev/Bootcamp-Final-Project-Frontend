@@ -1,11 +1,11 @@
 import './App.css';
-import Button from '@mui/material/Button';
+import { ThemeProvider } from '@emotion/react';
+import theme from './theme/theme';
+import Layout from './components/layout';
 
 function App() {
   return (
-    <div className="App">
-      <Button variant="contained">Contained</Button>
-    </div>
+      <div className="App" />
   );
 }
 

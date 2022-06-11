@@ -9,8 +9,8 @@ import OrderView from './views/orderView';
 import ProductView from './views/productView';
 import SearchView from './views/searchView';
 import HomeView from './views/homeView';
-import Layout from './components/layout';
 import TestView from './views/testView';
+import Layout from './components/layout';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -18,13 +18,15 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<HomeView />} />
+    <Routes>      
+    <Route path="/" element={<Layout />}>
+      <Route index element={<HomeView />} />
       <Route path="checkout" element={<CheckoutView />} />
       <Route path='order' element={<OrderView />} />
       <Route path='product/:id' element={<ProductView />} />
       <Route path='search' element={<SearchView />} />
       <Route path='test' element={<TestView />} />
+    </Route>
     </Routes>
     </BrowserRouter>    
   </React.StrictMode>

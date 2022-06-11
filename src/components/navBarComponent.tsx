@@ -5,9 +5,8 @@ import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
 import Badge from '@mui/material/Badge';
 import SearchIcon from '@mui/icons-material/Search';
-import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { Favorite, ShoppingCart } from "@mui/icons-material";
+import { Favorite, Home, ShoppingCart } from "@mui/icons-material";
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -53,8 +52,11 @@ const NavBarComponent = () => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
+          <IconButton href="/" size="large" color="inherit">             
+            <Home />
+          </IconButton>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
