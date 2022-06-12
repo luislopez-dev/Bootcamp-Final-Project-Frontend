@@ -1,5 +1,5 @@
 const OrderView = () => {
-    return (<>Order</>)
+  return (<>Order View</>);
 }
 
 export default OrderView;

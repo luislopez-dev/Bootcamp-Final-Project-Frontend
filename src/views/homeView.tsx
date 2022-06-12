@@ -15,15 +15,16 @@ const HomeView = () => {
 
     return (
     <div>
-      {
+      {<>      
+
         <Grid container spacing={{ xs: 2, md: 4 }} 
-              columns={{ xs: 4, sm: 8, md: 12 }}
+              
               justifyContent="center" >
         {Array.from(Array(6)).map((_, index) => (
           
         products.map((product, index) => 
 
-        <Grid container justifyContent="center" item xs={2} sm={3} md={3} key={index}>
+        <Grid container justifyContent="center" item xs={2} sm={4} md={4} key={index}>
           <Card key={index} sx={{ maxWidth: 200}}>   
           <CardActionArea href={`/product/${product.id}`}>
           <CardMedia
@@ -58,7 +59,8 @@ const HomeView = () => {
         )
         ))}
         </Grid>
-      }
+      
+      </>}
     </div>)
 }
 
