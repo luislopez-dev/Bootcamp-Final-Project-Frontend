@@ -1,6 +1,7 @@
 import { Button, Card, Divider, Grid, List, ListItem, ListItemButton, ListItemText } from "@mui/material";
 import AddressField from "../components/checkout_domain/addressField";
 import EmailField from "../components/checkout_domain/emailField";
+import NameField from "../components/checkout_domain/nameField";
 import PaymentField from "../components/checkout_domain/paymentField";
 import PhoneField from "../components/checkout_domain/phoneField";
 import PickupTimeField from "../components/checkout_domain/pickupTimeField";
@@ -13,6 +14,7 @@ const CheckoutView = () => {
         <Grid item xs={6} sm={6} md={7}>
           <Card>
            <AddressField />
+           <NameField />
            <PickupTimeField />
            <PhoneField />
            <EmailField />

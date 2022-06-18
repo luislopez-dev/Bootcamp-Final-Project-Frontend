@@ -5,7 +5,7 @@ export class ProductService {
     private api_url:String;
 
     constructor(){
-        this.api_url = "http://localhost:3004";
+        this.api_url = "http://localhost:3001";
     }
 
     async all(){

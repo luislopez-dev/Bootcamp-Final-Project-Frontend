@@ -5,12 +5,9 @@ import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
 import Badge from '@mui/material/Badge';
 import SearchIcon from '@mui/icons-material/Search';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import { Favorite, Home, ShoppingCart } from "@mui/icons-material";
-import { useState } from "react";
-import * as React from 'react';
-import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
+import OrderMenu from "./navbar/orderMenuComponent";
+import FavoriteMenu from "./navbar/favoriteMenuComponent";
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -52,39 +49,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-type Anchor = 'right';
 
-const NavBarComponent = () => {
+const NavBarComponent = () => {  
 
-  const [state, setState] = React.useState({
-    right: false,
-  });
 
-  const toggleDrawer =
-    (anchor: Anchor, open: boolean) =>
-    (event: React.KeyboardEvent | React.MouseEvent) => {
-      if (
-        event.type === 'keydown' &&
-        ((event as React.KeyboardEvent).key === 'Tab' ||
-          (event as React.KeyboardEvent).key === 'Shift')
-      ) {
-        return;
-      }
-
-      setState({ ...state, [anchor]: open });
-    };
-
-  const list = (anchor: Anchor) => (
-    <Box
-      sx={{ width: 650 }}
-      role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >      
-    
-    </Box>
-  );
-  
   return (
     <Box sx={{ flexGrow: 1 }}>
 
@@ -104,32 +72,11 @@ const NavBarComponent = () => {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" 
-                        color="inherit" onClick={toggleDrawer('right', true)}>
-              <Badge badgeContent={4} color="error">
-                <ShoppingCart />
-              </Badge>
-            </IconButton>            
-            <IconButton
-              size="large"              
-              color="inherit"
-            >
-              <Badge badgeContent={17} color="error">
-                <Favorite />
-              </Badge>
-            </IconButton>
+{/* Cart icon  */}     <OrderMenu />
+{/* Favorite icon  */} <FavoriteMenu />
           </Box>                  
         </Toolbar>
       </AppBar>
-
-      <Drawer
-        anchor='right'
-        open={state['right']}
-        onClose={toggleDrawer('right', false)}
-      >
-            {list('right')}
-      </Drawer>
-
     </Box>
   );
 }

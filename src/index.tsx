@@ -10,24 +10,36 @@ import SearchView from './views/searchView';
 import HomeView from './views/homeView';
 import TestView from './views/testView';
 import Layout from './components/layout';
+import { Provider } from 'react-redux';
+import { store } from './store'
+import { PersistGate } from 'redux-persist/integration/react'
+import { persistStore } from 'redux-persist'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+let persistor = persistStore(store);
+
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-    <Routes>      
-    <Route path="/" element={<Layout />}>
-      <Route index element={<HomeView />} />
-      <Route path="checkout" element={<CheckoutView />} />
-      <Route path='order' element={<OrderView />} />
-      <Route path='product/:id' element={<ProductView />} />
-      <Route path='search' element={<SearchView />} />
-      <Route path='test' element={<TestView />} />
-    </Route>
-    </Routes>
-    </BrowserRouter>    
+    <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+
+      <BrowserRouter>
+      <Routes>      
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomeView />} />
+        <Route path="checkout" element={<CheckoutView />} />
+        <Route path='order' element={<OrderView />} />
+        <Route path='product/:id' element={<ProductView />} />
+        <Route path='search' element={<SearchView />} />
+        <Route path='test' element={<TestView />} />
+      </Route>
+      </Routes>
+      </BrowserRouter> 
+      </PersistGate>
+    </Provider>
   </React.StrictMode>
 );
 
