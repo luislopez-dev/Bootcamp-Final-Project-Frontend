@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux'
-import { decrement, increment } from '../features/counter/counterSlice'
+import { clearCart, clearFavorites } from '../features/counter/counterSlice';
 
 const TestView = () => {
 
@@ -9,11 +9,8 @@ const TestView = () => {
 
     return (
       <div>
-        <Button onClick={() => dispatch(increment())}>add</Button>
-        <br />
-        <span>{count}</span>
-        <br />
-        <Button  onClick={() => dispatch(decrement())}>rest</Button>
+        <Button variant='contained' onClick={ () => dispatch(clearCart())}>Clear cart</Button>  
+        <Button variant='contained' onClick={ () => dispatch(clearFavorites())}>Clear favorites</Button>      
       </div>
     )
 }

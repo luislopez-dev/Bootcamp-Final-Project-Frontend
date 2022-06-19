@@ -1,14 +1,30 @@
-import { ShoppingCart } from "@mui/icons-material";
-import { Badge, Box, Drawer, IconButton } from "@mui/material";
+import { Add, Remove, ShoppingCart } from "@mui/icons-material";
+import { Avatar, Badge, Box, Button, ButtonGroup, Drawer, IconButton, List, ListItem, ListItemAvatar, ListItemButton, ListItemText } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { addToCart, remove_from_cart } from "../../features/counter/counterSlice";
 
 type Anchor = 'right';
 
 const OrderMenu = () => {
 
+  const cart = useSelector((state:any) => state.counter.cart);
+
+  const dispatch = useDispatch(); 
+
   const items = useSelector((state:any) => state.counter.cart);
   let count = 0;
+
+  const SubTotal = ( cart.reduce((a:any,b:any) => + a + + (b.price * b.count), 0) ) || 0;
+
+  function find_product_count(id:number) {
+    if(cart.some( (obj:any) => obj.id == id )){
+      const index = cart.findIndex( (x:any) => x.id == id );
+      return cart[index].count;  
+    }      
+    return 0;
+  }
 
   items.forEach((element:any) => {
     count += element.count;
@@ -38,12 +54,31 @@ const OrderMenu = () => {
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
-    >      
-    
+    >
+      <List>
+        {items.map( (product:any, index:number) =>         
+        <ListItem key={index}>
+          <img src={product.img} width="15%" />
+          <ButtonGroup size="small" aria-label="outlined primary button group">
+            <Button onClick={() => { dispatch(remove_from_cart(product)) }}><Remove /></Button>
+            <Button>{find_product_count(product.id)}</Button>
+            <Button onClick={() => { dispatch(addToCart(product)); }}><Add /></Button>
+          </ButtonGroup>  
+          <ListItemText>
+            ${product.price}
+          </ListItemText>
+        </ListItem>
+        )}    
+        <ListItem>
+          <Button href="/checkout" variant="contained">
+            Checkout ${SubTotal}
+          </Button>
+        </ListItem>
+      </List>
     </Box>
   );
 
-	return (		
+	return (
 
 	<div>
 

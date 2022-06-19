@@ -72,8 +72,8 @@ const NavBarComponent = () => {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-{/* Cart icon  */}     <OrderMenu />
-{/* Favorite icon  */} <FavoriteMenu />
+            <FavoriteMenu />
+            <OrderMenu />
           </Box>                  
         </Toolbar>
       </AppBar>
