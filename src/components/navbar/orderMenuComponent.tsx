@@ -59,14 +59,14 @@ const OrderMenu = () => {
         {items.map( (product:any, index:number) =>         
         <ListItem key={index}>
           <img src={product.img} width="15%" />
+          <ListItemText>
+            <ListItemText>{product.name}</ListItemText> ${product.price}
+          </ListItemText>
           <ButtonGroup size="small" aria-label="outlined primary button group">
             <Button onClick={() => { dispatch(remove_from_cart(product)) }}><Remove /></Button>
             <Button>{find_product_count(product.id)}</Button>
             <Button onClick={() => { dispatch(addToCart(product)); }}><Add /></Button>
           </ButtonGroup>  
-          <ListItemText>
-            ${product.price}
-          </ListItemText>
         </ListItem>
         )}    
         <ListItem>

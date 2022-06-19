@@ -1,10 +1,14 @@
-import { Favorite, ShoppingCart } from "@mui/icons-material";
-import { Badge, Box, Drawer, IconButton } from "@mui/material";
+import { Add, AddShoppingCart, Favorite, ShoppingCart } from "@mui/icons-material";
+import { Avatar, Badge, Box, Chip, Drawer, IconButton, List, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../features/counter/counterSlice";
 type Anchor = 'left';
 
 const FavoriteMenu = () => {
+
+  const dispatch = useDispatch(); 
 
   const items = useSelector((state:any) => state.counter.favorites);
   let count = 0;
@@ -39,6 +43,17 @@ const FavoriteMenu = () => {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >      
+    <List>
+      { items.map( (product:any, index:number) =>         
+        <ListItem key={index}>
+          <img src={product.img} width="15%" />
+          <ListItemText>
+          {product.name} ${product.price} 
+          </ListItemText>
+          <Chip color="primary" onClick={() => { dispatch(addToCart(product)); }} clickable icon={<AddShoppingCart />} label="Add to cart" />
+        </ListItem>
+      )}
+    </List>
     
     </Box>
   );
