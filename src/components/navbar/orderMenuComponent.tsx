@@ -1,9 +1,9 @@
-import { Add, Remove, ShoppingCart } from "@mui/icons-material";
-import { Avatar, Badge, Box, Button, ButtonGroup, Drawer, IconButton, List, ListItem, ListItemAvatar, ListItemButton, ListItemText } from "@mui/material";
+import { Add, Delete, Remove, ShoppingCart } from "@mui/icons-material";
+import { Avatar, Badge, Box, Button, ButtonGroup, Chip, Drawer, IconButton, List, ListItem, ListItemAvatar, ListItemButton, ListItemText } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { addToCart, remove_from_cart } from "../../features/counter/counterSlice";
+import { addToCart, clearCart, remove_all_from_cart, remove_from_cart } from "../../features/counter/counterSlice";
 
 type Anchor = 'right';
 
@@ -60,18 +60,25 @@ const OrderMenu = () => {
         <ListItem key={index}>
           <img src={product.img} width="15%" />
           <ListItemText>
-            <ListItemText>{product.name}</ListItemText> ${product.price}
+            <ListItemText>{product.name}</ListItemText> 
+            <strong> ${product.price} </strong>
           </ListItemText>
           <ButtonGroup size="small" aria-label="outlined primary button group">
             <Button onClick={() => { dispatch(remove_from_cart(product)) }}><Remove /></Button>
             <Button>{find_product_count(product.id)}</Button>
             <Button onClick={() => { dispatch(addToCart(product)); }}><Add /></Button>
           </ButtonGroup>  
+          <IconButton onClick={() => dispatch(remove_all_from_cart(product)) }>
+            <Delete color="warning" />
+          </IconButton>
         </ListItem>
         )}    
         <ListItem>
           <Button href="/checkout" variant="contained">
             Checkout ${SubTotal}
+          </Button>
+          <Button onClick={() => {dispatch(clearCart())}} startIcon={<Delete />} variant="contained" color="warning">
+            Clear cart
           </Button>
         </ListItem>
       </List>
@@ -82,12 +89,16 @@ const OrderMenu = () => {
 
 	<div>
 
-		<IconButton size="large" aria-label="show 4 new mails" 
+		{/* <IconButton size="large" aria-label="show 4 new mails" 
                 color="inherit" onClick={toggleDrawer('right', true)}>
       <Badge badgeContent={count} color="error">
         <ShoppingCart />
       </Badge>
-    </IconButton>     
+    </IconButton>      */}
+
+    <Chip icon={<ShoppingCart />} color="primary" label={count} 
+          clickable style={{padding:"20px"}} onClick={toggleDrawer('right', true)} />
+
 		<Drawer
       anchor='right'
       open={state['right']}

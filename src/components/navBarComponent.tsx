@@ -1,4 +1,4 @@
-import { AppBar, Toolbar } from "@mui/material";
+import { AppBar, Button, Toolbar } from "@mui/material";
 import { styled, alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
@@ -10,17 +10,15 @@ import OrderMenu from "./navbar/orderMenuComponent";
 import FavoriteMenu from "./navbar/favoriteMenuComponent";
 
 const Search = styled('div')(({ theme }) => ({
+  color:'black',
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
+  backgroundColor: "#F0F0F0",
   marginRight: theme.spacing(2),
   marginLeft: 0,
   width: '100%',
   [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
+    marginLeft: theme.spacing(20),
     width: 'auto',
   },
 }));
@@ -44,36 +42,40 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('md')]: {
-      width: '20ch',
+      width: '50ch',
     },
   },
 }));
 
+const logo = "/main-logo.jpg"
 
 const NavBarComponent = () => {  
-
 
   return (
     <Box sx={{ flexGrow: 1 }}>
 
-      <AppBar position="fixed">
+      <AppBar position="fixed" style={{backgroundColor:"white", border:"5px"}}>
         <Toolbar>
-          <IconButton href="/" size="large" color="inherit">             
-            <Home />
-          </IconButton>
-          <Search>
+          
+          <Button href="/">
+            <img width="160px" src={logo} />
+          </Button>
+
+          <Search >
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Search for product..."
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{  flexGrow: 0.3, display: { xs: 'none', md: 'flex' } }}>
             <FavoriteMenu />
-            <OrderMenu />
+          </Box>
+          <Box sx={{ flexGrow: 0.5, display: { xs: 'none', md: 'flex' } }}>
+            <OrderMenu />          
           </Box>                  
         </Toolbar>
       </AppBar>

@@ -1,9 +1,9 @@
-import { Add, AddShoppingCart, Favorite, ShoppingCart } from "@mui/icons-material";
-import { Avatar, Badge, Box, Chip, Drawer, IconButton, List, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
+import { Add, AddShoppingCart, Check, Delete, Favorite, Remove, ShoppingCart } from "@mui/icons-material";
+import { Avatar, Badge, Box, Chip, Drawer, IconButton, List, ListItem, ListItemAvatar, ListItemText, Tooltip } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../features/counter/counterSlice";
+import { addToCart, removeFromFavorites } from "../../features/counter/counterSlice";
 type Anchor = 'left';
 
 const FavoriteMenu = () => {
@@ -13,10 +13,18 @@ const FavoriteMenu = () => {
   const items = useSelector((state:any) => state.counter.favorites);
   let count = 0;
 
+  const cart = useSelector((state:any) => state.counter.cart);
+
   items.forEach((element:any) => {
     count += element.count;
   });
 
+  function is_product_in_cart(id:number){
+    if(cart.some( (obj:any) => obj.id == id )){
+      return true;
+    }      
+    return false;
+  }
 
 	const [state, setState] = React.useState({
     left: false,
@@ -48,26 +56,41 @@ const FavoriteMenu = () => {
         <ListItem key={index}>
           <img src={product.img} width="15%" />
           <ListItemText>
-          {product.name} ${product.price} 
+          {product.name} <strong>${product.price}</strong>
           </ListItemText>
-          <Chip color="primary" onClick={() => { dispatch(addToCart(product)); }} clickable icon={<AddShoppingCart />} label="Add to cart" />
-        </ListItem>
+
+          { is_product_in_cart(product.id) 
+              ? 
+              <Chip color="primary" label="In cart" icon={<Check />}></Chip>
+              :
+              <Chip color="primary" onClick={() => { dispatch(addToCart(product)); }} clickable icon={<AddShoppingCart />} label="Add to cart" />
+          }
+
+          <Tooltip placement="bottom-end" title="Remove">
+            <IconButton onClick={() => dispatch(removeFromFavorites(product)) }>
+              <Delete color="warning" />
+            </IconButton>
+          </Tooltip>
+
+          </ListItem>                  
       )}
-    </List>
-    
+    </List>    
     </Box>
   );
 
 	return (		
 
 <div>
-		<IconButton size="large" aria-label="show 4 new mails" 
+  
+  <Chip icon={<Favorite style={{}} />} color="primary" label={count} 
+        clickable style={{padding:"20px"}} onClick={toggleDrawer('left', true)} />
+
+		{/* <IconButton size="large" aria-label="show 4 new mails" 
                 color="inherit" onClick={toggleDrawer('left', true)}>
       <Badge  badgeContent={count} color="error">
         <Favorite />
       </Badge>
-    </IconButton>     
-
+    </IconButton>      */}
   <Drawer
 anchor='left'
 open={state['left']}

@@ -1,5 +1,5 @@
 import { Add, Favorite, FavoriteBorder, FavoriteBorderOutlined, Remove, Share } from "@mui/icons-material";
-import { Button, ButtonGroup, Card, CardActionArea, CardActions, CardContent, CardMedia, Chip, FormControl, Grid, IconButton, InputLabel, List, ListItem, ListItemButton, ListItemText, MenuItem, Select, Typography } from "@mui/material";
+import { Button, ButtonGroup, Card, CardActionArea, CardActions, CardContent, CardMedia, Chip, Divider, FormControl, Grid, IconButton, InputLabel, List, ListItem, ListItemButton, ListItemText, MenuItem, Select, Typography } from "@mui/material";
 import { useState } from "react";
 import { useEffect } from "react";
 import { ProductService } from "../services/productService";
@@ -13,13 +13,8 @@ import PriceField from "../components/menuDrawerDomain/priceField";
 import SortField from "../components/menuDrawerDomain/softField";
 
 import { useSelector } from "react-redux";
-
-const categories:Array<string> = [
-  'Produce', 'Health & Medicine', 'Bakery', 'Frozen',
-  'Snacks & Candy', 'Personal Care', 'Beatury',
-  'Household', 'Beverages', 'Meat & Seafood',
-  'Baby', 'Alcohol', 'Pets', 'Breakfast'
-];
+import ShareComponent from "../components/home_domain/shareComponent";
+import CategoriesMenu from "../components/categoriesMenu";
 
 interface InputWrapperProps { 
   children?: React.ReactNode
@@ -60,30 +55,11 @@ const HomeView = () => {
       {<>      
 
       <Grid container spacing={2}>
-       
-        <Grid item xs={3} style={{margin:'20px', position:'fixed'}}>
-          <Card style={{display:'block', height:'700px', overflowY:'scroll'}}>
-            <List>
-              <ListItem>
-                <PriceField />                
-              </ListItem>
-              <ListItem>
-                <SortField />
-              </ListItem>
-              {categories.map ((ele, index) => 
-                <ListItemButton key={index}>
-                  <ListItemText>{ele}</ListItemText>
-                </ListItemButton>
-              )}
-            </List>
-          </Card>
-        </Grid>
 
-        <Grid item xs={3} style={{margin:'20px'}}>
-        </Grid>
+        <CategoriesMenu />
 
         <Grid item xs={8}>
- 
+
           <Grid container spacing={{ xs: 2, md: 4 }} 
               
               justifyContent="center" >
@@ -121,18 +97,15 @@ const HomeView = () => {
                 }
                 
                 { find_product_count(product.id) > 0 ?
-                                             
-                  <ButtonGroup size="small" aria-label="outlined primary button group">
-                    <Button onClick={() => { dispatch(remove_from_cart(product)) }}><Remove /></Button>
-                    <Button>{find_product_count(product.id)}</Button>
-                    <Button onClick={() => { dispatch(addToCart(product)); }}><Add /></Button>
-                  </ButtonGroup>
+                    <ButtonGroup>
+                    <Button style={{maxWidth: '20px', maxHeight: '20px', minWidth: '20px', minHeight: '20px'}} onClick={() => { dispatch(remove_from_cart(product)) }}><Remove /></Button>
+                    <Button style={{maxWidth: '20px', maxHeight: '20px', minWidth: '20px', minHeight: '20px'}}>{find_product_count(product.id)}</Button>
+                    <Button style={{maxWidth: '20px', maxHeight: '20px', minWidth: '20px', minHeight: '20px'}} onClick={() => { dispatch(addToCart(product)); }}><Add /></Button>
+                    </ButtonGroup>
                   : <Chip color="primary" onClick={() => { dispatch(addToCart(product)); }} clickable icon={<Add />} label="Add" />                 
                 }
 
-                <IconButton>
-                   <Share color="primary" />
-                </IconButton>
+            <ShareComponent />
 
           </CardActions>
         </Card>

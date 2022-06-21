@@ -71,8 +71,6 @@ export const counterSlice = createSlice({
 
       if(state.cart.some( (obj:any) => obj.id == action.payload.id )){
 
-        console.log(action.payload.id)
-
         const index = state.cart.map( (e:any) => e.id ).indexOf(action.payload.id);
  
         if(state.cart[index].count == 1){
@@ -80,6 +78,16 @@ export const counterSlice = createSlice({
         }else{
           state.cart[index].count -= 1;
         }
+      }
+    },
+
+    remove_all_from_cart: (state:any, action:any) => {
+
+      if(state.cart.some( (obj:any) => obj.id == action.payload.id )){
+
+        const index = state.cart.map( (e:any) => e.id ).indexOf(action.payload.id);
+ 
+        state.cart.splice(index,1)        
       }
     },
 
@@ -97,6 +105,7 @@ export const counterSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { addToCart, addToFavorities, 
                remove_from_cart, removeFromFavorites, 
-               clearCart, clearFavorites} = counterSlice.actions
+               clearCart, clearFavorites, 
+               remove_all_from_cart} = counterSlice.actions
 
 export default counterSlice.reducer
