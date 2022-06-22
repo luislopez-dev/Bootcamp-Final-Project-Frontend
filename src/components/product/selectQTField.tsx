@@ -17,12 +17,13 @@ export default function SelectQTField() {
 
   const AddToCart = (event: any) => {
     setAdded(true);
-    setAge("-")
+    setAge("-");
   }
 
   const handleChange = (event: SelectChangeEvent) => {
     setAge(event.target.value as string);
     setAdded(false);
+    
   };
 
   return (
@@ -50,7 +51,7 @@ export default function SelectQTField() {
 
     {
       added ? 
-      <Chip icon={<Check />} label="Added" size='medium' color="primary" />
+      <Chip icon={<Check />} label={`Products added!`} size='medium' color="primary" />
       :
       <Button variant="outlined" onClick={AddToCart}
         startIcon={<AddShoppingCart />}>

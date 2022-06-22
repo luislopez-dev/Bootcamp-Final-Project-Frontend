@@ -73,13 +73,13 @@ const OrderMenu = () => {
           </IconButton>
         </ListItem>
         )}    
-        <ListItem>
-          <Button href="/checkout" variant="contained">
+        <ListItem style={{display:'flex', justifyContent:'center'}}>
+          <Button href="/checkout" variant="contained" size="large">
             Checkout ${SubTotal}
           </Button>
-          <Button onClick={() => {dispatch(clearCart())}} startIcon={<Delete />} variant="contained" color="warning">
+          {/* <Button onClick={() => {dispatch(clearCart())}} startIcon={<Delete />} variant="contained" color="warning">
             Clear cart
-          </Button>
+          </Button> */}
         </ListItem>
       </List>
     </Box>

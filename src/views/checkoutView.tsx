@@ -1,4 +1,5 @@
-import { Button, Card, Divider, Grid, List, ListItem, ListItemButton, ListItemText } from "@mui/material";
+import { Alert, Button, Card, Divider, Grid, List, ListItem, ListItemButton, ListItemText, Typography } from "@mui/material";
+import { fontSize } from "@mui/system";
 import AddressField from "../components/checkout_domain/addressField";
 import EmailField from "../components/checkout_domain/emailField";
 import NameField from "../components/checkout_domain/nameField";
@@ -10,63 +11,88 @@ const CheckoutView = () => {
 
     return (
     <>
-      <Grid container>
-        <Grid item xs={6} sm={6} md={7}>
+      <Grid container spacing={15} style={{padding:"50px"}}>
+        <Grid item md={7}>
           <Card>
            <AddressField />
            <NameField />
-           <PickupTimeField />
+           {/* <PickupTimeField /> */}           
            <PhoneField />
            <EmailField />
            <PaymentField />
           </Card>
         </Grid>
 
-        <Grid container justifyContent="center" item xs={6} sm={6} md={5}>
+        <Grid justifyContent="center" item md={5}>
           <Card>
           <List>
-            <ListItem>
-             <Button variant="contained" size="large">Place order</Button>
-            </ListItem>
-
-            <Divider variant="inset" component="li" />
 
             <ListItem>
-              <ListItemText>
-              100% satisfaction guarantee. Place your order with peace of mind.
+              <ListItemText>        
+                <Grid container>
+                  <Grid item md={6}>
+                  Item subtotal
+                  </Grid>
+                  <Grid item md={6}>
+                  $44.55
+                  </Grid>
+                </Grid>                       
               </ListItemText>
             </ListItem>
 
-            <Divider variant="inset" component="li" />
-
-            <ListItem>
-              <ListItemText>                
-                <strong>Sub Total </strong> $44.55
-              </ListItemText>
-            </ListItem>
-
-            <Divider variant="inset" component="li" />
-
             <ListItem>
               <ListItemText>
-              <strong>Total </strong> $52.55
+              <Grid container>
+                <Grid item md={6}>
+                  Delivery
+                </Grid>
+                <Grid item md={6}>
+                  $44.55
+                </Grid>
+                </Grid>   
               </ListItemText>
             </ListItem>      
 
-            <Divider variant="inset" component="li" />
-
             <ListItem>
-              <Button color="primary">
-                Add promo code or gift card
-              </Button>
+              <ListItemText>
+              <Grid container>
+                <Grid item md={6}>
+                Service fee
+                </Grid>
+                <Grid item md={6}>
+                  $44.55
+                </Grid>
+                </Grid>   
+              </ListItemText>
+            </ListItem>  
+                        
+            <ListItem>
+              <ListItemText>
+              <Grid container>
+                <Grid item md={6}>
+                Total
+                </Grid>
+                <Grid item md={6}>
+                  $44.55
+                </Grid>
+                </Grid>   
+              </ListItemText>
+            </ListItem>   
+
+            <Alert severity="info">
+            If you forget anything, you can add items until the shopper checks out.
+            </Alert>
+
+            <ListItem style={{display:'flex', justifyContent:'center'}}>
+             <Button variant="contained" size="large">Place order</Button>
             </ListItem>
-
+            
             <ListItem>
-            <ListItemText>
-            By placing your order, you agree to be bound by the Instacart Terms of Service and Privacy Policy. Your credit/debit card will be temporarily authorized for $10.96. Your statement will reflect the final order total after order completion. Learn more
-            A bag fee may be added to your final total if required by law or the retailer. The fee will be visible on your receipt after delivery.
-            Prices may vary from those in store.
-            </ListItemText>
+              <Typography style={{fontSize:'10px'}}>
+              By placing your order, you agree to be bound by the Web Items Terms of Service and Privacy Policy. Your credit/debit card will be temporarily authorized for $237.06. Your statement will reflect the final order total after order completion. Learn more
+              A bag fee may be added to your final total if required by law or the retailer. The fee will be visible on your receipt via email.
+              Prices may vary from those in store.
+              </Typography>
             </ListItem>
 
           </List>

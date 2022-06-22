@@ -27,7 +27,7 @@ const theme = createTheme({
       h6: {
         fontWeight: 500
       }
-    }
+    }, 
   })
 
   export default theme;
