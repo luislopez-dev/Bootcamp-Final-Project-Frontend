@@ -8,13 +8,11 @@ import OrderView from './views/orderView';
 import ProductView from './views/productView';
 import SearchView from './views/searchView';
 import HomeView from './views/homeView';
-import TestView from './views/testView';
 import Layout from './components/layout';
 import { Provider } from 'react-redux';
 import { store } from './store'
 import { PersistGate } from 'redux-persist/integration/react'
 import { persistStore } from 'redux-persist'
-
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -26,7 +24,6 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-
       <BrowserRouter>
       <Routes>      
       <Route path="/" element={<Layout />}>
@@ -35,7 +32,6 @@ root.render(
         <Route path='order' element={<OrderView />} />
         <Route path='product/:id' element={<ProductView />} />
         <Route path='search' element={<SearchView />} />
-        <Route path='test' element={<TestView />} />
       </Route>
       </Routes>
       </BrowserRouter> 
