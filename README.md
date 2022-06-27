@@ -1,4 +1,4 @@
-# &copy;Web Items - front-end
+# &copy;Web Items - Front-end
 
 ## Table of contents
 
