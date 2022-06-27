@@ -1,46 +1,36 @@
-# Getting Started with Create React App
+# &copy;Web Items - front-end
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of contents
 
-## Available Scripts
+* [Introduction](#introduction)
+* [Technology](#technology)
+* [Cloud infrastructure](cloud-infrastructure)
+* [Environmental variables](#environmental-variables)
+* [Run](#run)
+* [License](#license)
 
-In the project directory, you can run:
+## Introduction
 
-### `npm start`
+El siguiente proyecto es una aplicación web de productos utilizando la arquitectura Modelo Vista Controlador.
+Segundo proyecto del Bootcamp React / Ruby on Rails.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Technology
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+* ruby 2.7.0
+* Rails 6.1.5
+* pg (postgres) 1.1
+* Bootstrap 5
 
-### `npm test`
+## Cloud infrastructure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Environmental variables
 
-### `npm run build`
+1. `DB_NAME:` Nombre de la base de datos
+2. `DB_USERNAME:` Nombre del usuario de la base de datos
+3. `DB_PASSWORD:` Contraseña de la base de datos
+4. `DB_HOST:` Host de la base de datos
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Run:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Clone el repositorio
+2. Diríjase a la carpeta raíz del proyecto e instale las dependencias a través de los siguientes comandos:  `bundle install` y `yarn install`
