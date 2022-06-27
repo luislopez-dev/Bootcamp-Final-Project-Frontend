@@ -5,7 +5,6 @@
 * [Introduction](#introduction)
 * [Technology](#technology)
 * [Cloud infrastructure](cloud-infrastructure)
-* [Environmental variables](#environmental-variables)
 * [Run](#run)
 * [License](#license)
 
@@ -23,14 +22,14 @@ Segundo proyecto del Bootcamp React / Ruby on Rails.
 
 ## Cloud infrastructure
 
-## Environmental variables
-
-1. `DB_NAME:` Nombre de la base de datos
-2. `DB_USERNAME:` Nombre del usuario de la base de datos
-3. `DB_PASSWORD:` Contraseña de la base de datos
-4. `DB_HOST:` Host de la base de datos
-
 ## Run:
 
 1. Clone el repositorio
 2. Diríjase a la carpeta raíz del proyecto e instale las dependencias a través de los siguientes comandos:  `bundle install` y `yarn install`
+
+## Other bootcamp projects: 
+
+1. Shopping cart CLI: https://github.com/luislopez-dev/Shopping-Cart-CLI
+2. MVC CRUD: https://github.com/luislopez-dev/Product-MVC-CRUD
+3. CRUD REST API: https://github.com/luislopez-dev/Products-CRUD-API
+4. Some of the bootcamp coding challenges: https://replit.com/@LuisLopez73?path=folder/Boot-camp%20coding%20challenges
