@@ -1,11 +1,9 @@
-import { Alert, Button, Card, Divider, Grid, List, ListItem, ListItemButton, ListItemText, Typography } from "@mui/material";
-import { fontSize } from "@mui/system";
-import AddressField from "../components/checkout_domain/addressField";
-import EmailField from "../components/checkout_domain/emailField";
-import NameField from "../components/checkout_domain/nameField";
-import PaymentField from "../components/checkout_domain/paymentField";
-import PhoneField from "../components/checkout_domain/phoneField";
-import PickupTimeField from "../components/checkout_domain/pickupTimeField";
+import { Alert, Button, Card, Grid, List, ListItem, ListItemText, Typography } from "@mui/material";
+import AddressField from "../components/checkout/addressField";
+import EmailField from "../components/checkout/emailField";
+import NameField from "../components/checkout/nameField";
+import PaymentField from "../components/checkout/paymentField";
+import PhoneField from "../components/checkout/phoneField";
 
 const CheckoutView = () => {
 
@@ -16,7 +14,6 @@ const CheckoutView = () => {
           <Card>
            <AddressField />
            <NameField />
-           {/* <PickupTimeField /> */}           
            <PhoneField />
            <EmailField />
            <PaymentField />

@@ -4,11 +4,10 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CheckoutView from './views/checkoutView';
-import OrderView from './views/orderView';
 import ProductView from './views/productView';
-import SearchView from './views/searchView';
 import HomeView from './views/homeView';
-import Layout from './components/layout';
+import NoMathcView from './views/noMathcView';
+import Layout from './components/layout/layout';
 import { Provider } from 'react-redux';
 import { store } from './store'
 import { PersistGate } from 'redux-persist/integration/react'
@@ -29,9 +28,8 @@ root.render(
       <Route path="/" element={<Layout />}>
         <Route index element={<HomeView />} />
         <Route path="checkout" element={<CheckoutView />} />
-        <Route path='order' element={<OrderView />} />
         <Route path='product/:id' element={<ProductView />} />
-        <Route path='search' element={<SearchView />} />
+        <Route path='*' element={<NoMathcView />} />
       </Route>
       </Routes>
       </BrowserRouter> 

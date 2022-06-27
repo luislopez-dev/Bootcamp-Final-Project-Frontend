@@ -1,9 +1,9 @@
-import { Add, AddShoppingCart, Check, Delete, Favorite, Remove, ShoppingCart } from "@mui/icons-material";
-import { Avatar, Badge, Box, Chip, Drawer, IconButton, List, ListItem, ListItemAvatar, ListItemText, Tooltip } from "@mui/material";
+import { AddShoppingCart, Check, Delete, Favorite } from "@mui/icons-material";
+import { Box, Chip, Drawer, IconButton, List, ListItem, ListItemText, Tooltip } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { addToCart, removeFromFavorites } from "../../features/counter/counterSlice";
+import { addToCart, removeFromFavorites } from "../../../features/counter/counterSlice";
 type Anchor = 'left';
 
 const FavoriteMenu = () => {
@@ -81,23 +81,11 @@ const FavoriteMenu = () => {
 	return (		
 
 <div>
-  
   <Chip icon={<Favorite style={{}} />} color="primary" label={count} 
         clickable style={{padding:"20px"}} onClick={toggleDrawer('left', true)} />
-
-		{/* <IconButton size="large" aria-label="show 4 new mails" 
-                color="inherit" onClick={toggleDrawer('left', true)}>
-      <Badge  badgeContent={count} color="error">
-        <Favorite />
-      </Badge>
-    </IconButton>      */}
-  <Drawer
-anchor='left'
-open={state['left']}
-onClose={toggleDrawer('left', false)}
->
-{list('left')}
-</Drawer>
+    <Drawer anchor='left' open={state['left']} onClose={toggleDrawer('left', false)} >
+      {list('left')}
+    </Drawer>
 </div>
 	)
 }

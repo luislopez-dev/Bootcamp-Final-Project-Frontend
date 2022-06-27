@@ -1,13 +1,10 @@
 import { AppBar, Button, Toolbar } from "@mui/material";
-import { styled, alpha } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
-import Badge from '@mui/material/Badge';
 import SearchIcon from '@mui/icons-material/Search';
-import { Favorite, Home, ShoppingCart } from "@mui/icons-material";
-import OrderMenu from "./navbar/orderMenuComponent";
-import FavoriteMenu from "./navbar/favoriteMenuComponent";
+import OrderMenu from "./orderMenu/orderMenu";
+import FavoriteMenu from "./favoriteMenu/favoriteMenu";
 
 const Search = styled('div')(({ theme }) => ({
   color:'black',

@@ -1,9 +1,9 @@
 import { Add, Delete, Remove, ShoppingCart } from "@mui/icons-material";
-import { Avatar, Badge, Box, Button, ButtonGroup, Chip, Drawer, IconButton, List, ListItem, ListItemAvatar, ListItemButton, ListItemText } from "@mui/material";
+import { Box, Button, ButtonGroup, Chip, Drawer, IconButton, List, ListItem, ListItemText } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { addToCart, clearCart, remove_all_from_cart, remove_from_cart } from "../../features/counter/counterSlice";
+import { addToCart, remove_all_from_cart, remove_from_cart } from "../../../features/counter/counterSlice";
 
 type Anchor = 'right';
 
@@ -88,14 +88,6 @@ const OrderMenu = () => {
 	return (
 
 	<div>
-
-		{/* <IconButton size="large" aria-label="show 4 new mails" 
-                color="inherit" onClick={toggleDrawer('right', true)}>
-      <Badge badgeContent={count} color="error">
-        <ShoppingCart />
-      </Badge>
-    </IconButton>      */}
-
     <Chip icon={<ShoppingCart />} color="primary" label={count} 
           clickable style={{padding:"20px"}} onClick={toggleDrawer('right', true)} />
 

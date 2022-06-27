@@ -1,4 +1,4 @@
-import { CreditCard, LocationOn, Payment, PaymentOutlined } from "@mui/icons-material";
+import { PhoneOutlined } from "@mui/icons-material";
 import { Card, CardContent, Collapse, List, ListItem, ListItemButton, ListItemIcon, TextField, Typography } from "@mui/material";
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
@@ -21,7 +21,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
     }),
   }));
 
-const PaymentField = () => {
+const PhoneField = () => {
 
     const [expanded, setExpanded] = React.useState(false);
 
@@ -36,9 +36,9 @@ const PaymentField = () => {
         <List>
           <ListItemButton>
             <ListItemIcon>
-              <PaymentOutlined color="primary" />
+              <PhoneOutlined color="primary" />
             </ListItemIcon>
-            <Typography>Payment</Typography>
+            <Typography>Mobile number</Typography>
             <ExpandMore
                 expand={expanded}
                 onClick={handleExpandClick}
@@ -51,14 +51,15 @@ const PaymentField = () => {
         </List>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <List>
-            <ListItem>
+        
+        <List>
+          <ListItem>
             <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-        <CreditCard sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-        <TextField id="input-with-sx" label="Credit Card" variant="standard" />
-      </Box>
-            </ListItem>
-          </List>        
+              <TextField placeholder="(000) 000-0000" id="input-with-sx" variant="standard" />
+            </Box>
+          </ListItem>
+        </List>
+
         </CardContent>
       </Collapse>
       </Card>
@@ -66,4 +67,4 @@ const PaymentField = () => {
     )
 }
 
-export default PaymentField;
+export default PhoneField;

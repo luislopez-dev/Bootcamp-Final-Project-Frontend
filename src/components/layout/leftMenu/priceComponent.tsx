@@ -1,6 +1,6 @@
 import { TextField } from "@mui/material";
 
-const PriceField = () => {	
+const PriceComponent = () => {	
 	return (
 	<div>
 		<TextField variant="standard" label="Max $" type="number" />
@@ -9,4 +9,4 @@ const PriceField = () => {
 	);
 }
 
-export default PriceField;
+export default PriceComponent;

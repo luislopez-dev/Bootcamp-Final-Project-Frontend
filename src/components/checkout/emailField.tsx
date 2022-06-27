@@ -1,4 +1,4 @@
-import { Email, EmailOutlined, LocationOn } from "@mui/icons-material";
+import { EmailOutlined } from "@mui/icons-material";
 import { Card, CardContent, Collapse, List, ListItem, ListItemButton, ListItemIcon, TextField, Typography } from "@mui/material";
 import * as React from 'react';
 import { styled } from '@mui/material/styles';

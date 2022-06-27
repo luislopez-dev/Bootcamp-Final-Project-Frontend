@@ -5,9 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { Button, Chip } from '@mui/material';
-import { Add, AddCircle, AddCircleOutline, AddShoppingCart, Check, CheckCircle, CheckCircleOutline, Done, DoneOutline, FilterList, FormatListBulleted, Grain, ShoppingBasket, ShoppingCart, ViewList } from '@mui/icons-material';
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { AddShoppingCart, Check } from '@mui/icons-material';
 
 export default function SelectQTField() {
 

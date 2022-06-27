@@ -1,9 +1,10 @@
-import { LocationOn, Person, PersonOutlined } from "@mui/icons-material";
-import { Card, CardContent, Collapse, List, ListItemButton, ListItemIcon, TextField, Typography } from "@mui/material";
+import { CreditCard, PaymentOutlined } from "@mui/icons-material";
+import { Card, CardContent, Collapse, List, ListItem, ListItemButton, ListItemIcon, TextField, Typography } from "@mui/material";
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Box } from "@mui/system";
 
 interface ExpandMoreProps extends IconButtonProps {
     expand: boolean;
@@ -20,7 +21,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
     }),
   }));
 
-const NameField = () => {
+const PaymentField = () => {
 
     const [expanded, setExpanded] = React.useState(false);
 
@@ -35,9 +36,9 @@ const NameField = () => {
         <List>
           <ListItemButton>
             <ListItemIcon>
-              <PersonOutlined color="primary" />
+              <PaymentOutlined color="primary" />
             </ListItemIcon>
-            <Typography>Name</Typography>
+            <Typography>Payment</Typography>
             <ExpandMore
                 expand={expanded}
                 onClick={handleExpandClick}
@@ -50,7 +51,14 @@ const NameField = () => {
         </List>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <TextField fullWidth label="Complete name" />
+          <List>
+            <ListItem>
+            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+        <CreditCard sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+        <TextField id="input-with-sx" label="Credit Card" variant="standard" />
+      </Box>
+            </ListItem>
+          </List>        
         </CardContent>
       </Collapse>
       </Card>
@@ -58,4 +66,4 @@ const NameField = () => {
     )
 }
 
-export default NameField;
+export default PaymentField;

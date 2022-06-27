@@ -1,24 +1,11 @@
-import { Add, Favorite, FavoriteBorder, FavoriteBorderOutlined, Remove, Share } from "@mui/icons-material";
-import { Button, ButtonGroup, Card, CardActionArea, CardActions, CardContent, CardMedia, Chip, Divider, FormControl, Grid, IconButton, InputLabel, List, ListItem, ListItemButton, ListItemText, MenuItem, Select, Typography } from "@mui/material";
-import { useState } from "react";
-import { useEffect } from "react";
+import { Add, Favorite, FavoriteBorder, Remove } from "@mui/icons-material";
+import { Button, ButtonGroup, Card, CardActionArea, CardActions, CardContent, CardMedia, Chip, Grid, IconButton, Typography } from "@mui/material";
+import { useState, useEffect } from "react";
 import { ProductService } from "../services/productService";
-import * as React from 'react';
-import CategoryField from "../components/menuDrawerDomain/categoryField";
-import { addToCart, removeFromFavorites } from "../features/counter/counterSlice";
-import { addToFavorities } from "../features/counter/counterSlice";
-import { remove_from_cart } from "../features/counter/counterSlice";
-import { useDispatch } from "react-redux";
-import PriceField from "../components/menuDrawerDomain/priceField";
-import SortField from "../components/menuDrawerDomain/softField";
-
-import { useSelector } from "react-redux";
-import ShareComponent from "../components/home_domain/shareComponent";
-import CategoriesMenu from "../components/categoriesMenu";
-
-interface InputWrapperProps { 
-  children?: React.ReactNode
-}
+import { addToCart, removeFromFavorites, addToFavorities, remove_from_cart } from "../features/counter/counterSlice";
+import { useDispatch, useSelector } from "react-redux";
+import ShareComponent from "../components/product/card/shareComponent";
+import CategoryComponent from "../components/layout/leftMenu/categoryComponent";
 
 const HomeView = () => {
 
@@ -56,7 +43,7 @@ const HomeView = () => {
 
       <Grid container spacing={2}>
 
-        <CategoriesMenu />
+        <CategoryComponent />
 
         <Grid item xs={8}>
 

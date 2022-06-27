@@ -55,7 +55,6 @@ export const counterSlice = createSlice({
               count:1});
         }else{
 
-          // const index = state.cart.map( ((e:product) => e.id ).indexOf(action.payload.id);
 					const index = state.cart.findIndex( (x:any) => x.id == action.payload.id );
           state.cart[index].count += 1;
         }
