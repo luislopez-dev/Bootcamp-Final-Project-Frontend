@@ -6,20 +6,27 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { Button, Chip } from '@mui/material';
 import { AddShoppingCart, Check } from '@mui/icons-material';
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, addToCartWithAmmount } from '../../features/counter/counterSlice';
 
-export default function SelectQTField() {
+export default function SelectQTField(props:any) {
 
-  const [age, setAge] = React.useState('');
+  const [ammount, setAmmount] = React.useState('');
 
   const [added, setAdded] = React.useState(false);
 
-  const AddToCart = (event: any) => {
+  const dispatch = useDispatch(); 
+
+  const add = (event: any) => {
+    let product = props.product;
+    product.ammount = ammount;
     setAdded(true);
-    setAge("-");
+    setAmmount("-");  
+    dispatch(addToCartWithAmmount(product));
   }
 
   const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
+    setAmmount(event.target.value as string);
     setAdded(false);
     
   };
@@ -35,8 +42,8 @@ export default function SelectQTField() {
 					<Select style={{textAlign: "center"}}
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age || "1"}
-          label="Age"
+          value={ammount || "1"}
+          label="ammount"
           onChange={handleChange}
         >
           {[...Array(10).keys()].map( (e) => 
@@ -51,7 +58,7 @@ export default function SelectQTField() {
       added ? 
       <Chip icon={<Check />} label={`Products added!`} size='medium' color="primary" />
       :
-      <Button variant="outlined" onClick={AddToCart}
+      <Button variant="outlined" onClick={(e) => { add(e); }}
         startIcon={<AddShoppingCart />}>
       Add to cart
     </Button>

@@ -6,14 +6,6 @@ const initialState = {
 	favorites: []
 }
 
-type product = {
-	id:number,
-	name: string,
-	img: string,
-	count: number,
-	price: number
-};
-
 export const counterSlice = createSlice({
   name: 'counter',
   initialState,
@@ -66,6 +58,29 @@ export const counterSlice = createSlice({
       }
     },
 
+    addToCartWithAmmount: (state:any, action:any) => {
+
+			if(state.cart.length > 0){
+        if(!state.cart.some( (obj:any) => obj.id == action.payload.id )){
+            state.cart.push({
+              id: action.payload.id, 
+              name: action.payload.name,
+              price:action.payload.price, 
+              img:action.payload.img,
+              count:action.payload.ammount});          
+        }else{
+
+					const index = state.cart.findIndex( (x:any) => x.id == action.payload.id );
+          state.cart[index].count += action.payload.ammount;
+        }
+
+      }else{
+        state.cart.push({id: action.payload.id, name: action.payload.name,
+                         count:action.payload.ammount, price:action.payload.price, 
+                         img:action.payload.img}); 
+      }
+    },
+
     remove_from_cart: (state:any, action:any) => {
 
       if(state.cart.some( (obj:any) => obj.id == action.payload.id )){
@@ -105,6 +120,6 @@ export const counterSlice = createSlice({
 export const { addToCart, addToFavorities, 
                remove_from_cart, removeFromFavorites, 
                clearCart, clearFavorites, 
-               remove_all_from_cart} = counterSlice.actions
+               remove_all_from_cart, addToCartWithAmmount} = counterSlice.actions
 
 export default counterSlice.reducer

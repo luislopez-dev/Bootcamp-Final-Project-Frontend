@@ -6,7 +6,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CheckoutView from './views/checkoutView';
 import ProductView from './views/productView';
 import HomeView from './views/homeView';
-import NoMathcView from './views/noMathcView';
 import Layout from './components/layout/layout';
 import { Provider } from 'react-redux';
 import { store } from './store'
@@ -20,7 +19,6 @@ const root = ReactDOM.createRoot(
 let persistor = persistStore(store);
 
 root.render(
-  <React.StrictMode>
     <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter>
@@ -29,13 +27,12 @@ root.render(
         <Route index element={<HomeView />} />
         <Route path="checkout" element={<CheckoutView />} />
         <Route path='product/:id' element={<ProductView />} />
-        <Route path='*' element={<NoMathcView />} />
+        <Route path='*' element={<HomeView />} />
       </Route>
       </Routes>
       </BrowserRouter> 
       </PersistGate>
     </Provider>
-  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

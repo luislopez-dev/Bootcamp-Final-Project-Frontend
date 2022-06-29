@@ -52,8 +52,6 @@ const OrderMenu = () => {
     <Box
       sx={{ width: 650 }}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
         {items.map( (product:any, index:number) =>         
@@ -73,14 +71,21 @@ const OrderMenu = () => {
           </IconButton>
         </ListItem>
         )}    
-        <ListItem style={{display:'flex', justifyContent:'center'}}>
+
+        {
+         items.length > 0 &&
+        
+          <ListItem style={{display:'flex', justifyContent:'center'}}>
           <Button href="/checkout" variant="contained" size="large">
-            Checkout ${SubTotal}
+            Checkout ${ Math.round((SubTotal + Number.EPSILON) * 100) / 100}
           </Button>
           {/* <Button onClick={() => {dispatch(clearCart())}} startIcon={<Delete />} variant="contained" color="warning">
             Clear cart
           </Button> */}
-        </ListItem>
+          </ListItem>
+
+        }
+
       </List>
     </Box>
   );

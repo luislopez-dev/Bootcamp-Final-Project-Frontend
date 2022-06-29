@@ -18,11 +18,14 @@ const HomeView = () => {
     const [products, setProducts] = useState<any[]>([]);
     const productService = new ProductService();
 
+    // const products = productService.all();
+
     useEffect(() => {
-      productService.all().then( (res) => { setProducts(res.data); console.log(res.data) });
+      // productService.all().then( (res) => { setProducts(res.data); console.log(res.data) });
+      setProducts(productService.all());
     }, []);
 
-    function find_product_count(id:number) {
+    function find_product_count(id:any) {
       if(cart.some( (obj:any) => obj.id == id )){
         const index = cart.findIndex( (x:any) => x.id == id );
         return cart[index].count;  
@@ -50,9 +53,10 @@ const HomeView = () => {
           <Grid container spacing={{ xs: 2, md: 4 }} 
               
               justifyContent="center" >
-            {Array.from(Array(6)).map((_, index) => (
+            {
           
-          products.map((product, index) => 
+          products.map((product, index) =>  {
+            return (
 
           <Grid container justifyContent="center" item xs={2} sm={4} md={3} key={index}>
             <Card key={index} sx={{ maxWidth: 200}}>   
@@ -84,7 +88,7 @@ const HomeView = () => {
                 }
                 
                 { find_product_count(product.id) > 0 ?
-                    <ButtonGroup>
+                    <ButtonGroup variant="contained">
                     <Button style={{maxWidth: '20px', maxHeight: '20px', minWidth: '20px', minHeight: '20px'}} onClick={() => { dispatch(remove_from_cart(product)) }}><Remove /></Button>
                     <Button style={{maxWidth: '20px', maxHeight: '20px', minWidth: '20px', minHeight: '20px'}}>{find_product_count(product.id)}</Button>
                     <Button style={{maxWidth: '20px', maxHeight: '20px', minWidth: '20px', minHeight: '20px'}} onClick={() => { dispatch(addToCart(product)); }}><Add /></Button>
@@ -97,8 +101,9 @@ const HomeView = () => {
           </CardActions>
         </Card>
         </Grid>
+          )}
         )
-        ))}
+        }
         </Grid>
         </Grid>
 

@@ -48,8 +48,6 @@ const FavoriteMenu = () => {
     <Box
       sx={{ width: 450 }}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
     >      
     <List>
       { items.map( (product:any, index:number) =>         
@@ -79,14 +77,13 @@ const FavoriteMenu = () => {
   );
 
 	return (		
-
-<div>
-  <Chip icon={<Favorite style={{}} />} color="primary" label={count} 
-        clickable style={{padding:"20px"}} onClick={toggleDrawer('left', true)} />
-    <Drawer anchor='left' open={state['left']} onClose={toggleDrawer('left', false)} >
-      {list('left')}
-    </Drawer>
-</div>
+    <div>
+      <Chip icon={<Favorite />} color="primary" label={count} 
+          clickable style={{padding:"20px"}} onClick={toggleDrawer('left', true)} />
+        <Drawer anchor='left' open={state['left']} onClose={toggleDrawer('left', false)} >
+          {list('left')}
+        </Drawer>
+    </div>
 	)
 }
 
