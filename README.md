@@ -4,9 +4,8 @@
 
 * [Introduction](#introduction)
 * [Technology](#technology)
-* [Cloud infrastructure](cloud-infrastructure)
-* [Run](#run)
-
+* [Cloud infrastructure](#cloud-infrastructure)
+* [Content sample](#content-sample)
 ## Introduction
 
 Web Items is an e-commerce site created to offer different supermarket products online. At the same time, it is the final project of the Ruby ​​on rails/React bootcamp. This repository contains the frontend part of web-items.com. 
