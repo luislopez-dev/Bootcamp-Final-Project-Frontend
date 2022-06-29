@@ -21,7 +21,7 @@ Web Items is an e-commerce site created to offer different supermarket products 
 ## Project execution
 
 1. Clone this repository
-2. Install the project dependencies by running `npm install`
+2. Install the project dependencies with the folling command `npm install`
 3. For development and testing purposes start the project by running the following command: `npm start`, for production enviroments create an optimized build of the project by running `npm build` and then deploy the generated files.
 
 ## Cloud infrastructure
