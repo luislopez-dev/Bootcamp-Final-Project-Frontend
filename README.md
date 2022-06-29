@@ -19,7 +19,8 @@ Web Items is an e-commerce site created to offer different supermarket products 
 * Material UI 5.8.3
 
 ## Cloud infrastructure
-![Cloud infrastructure](https://lucid.app/publicSegments/view/6a2779c5-78f3-4757-a42a-172866c9e94c/image.png)
+<img src="https://lucid.app/publicSegments/view/6a2779c5-78f3-4757-a42a-172866c9e94c/image.png" height="300px">
+
 ## Content sample
 
 ![Home page](https://i.imgur.com/qF44YHm.png)
