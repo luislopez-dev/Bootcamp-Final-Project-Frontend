@@ -9,16 +9,21 @@ import CategoryComponent from "../components/layout/leftMenu/categoryComponent";
 
 const HomeView = () => {
 
-    const favorites = useSelector((state:any) => state.counter.favorites);
+  const mobile = () => {
+    if(window.screen.width < 400) { return true; };
+    return false;
+  }
+  
+  const favorites = useSelector((state:any) => state.counter.favorites);
 
-    const cart = useSelector((state:any) => state.counter.cart);
+  const cart = useSelector((state:any) => state.counter.cart);
 
-    const dispatch = useDispatch(); 
+  const dispatch = useDispatch(); 
 
-    const [products, setProducts] = useState<any[]>([]);
-    const productService = new ProductService();
+  const [products, setProducts] = useState<any[]>([]);
+  const productService = new ProductService();
 
-    // const products = productService.all();
+  // const products = productService.all();
 
     useEffect(() => {
       // productService.all().then( (res) => { setProducts(res.data); console.log(res.data) });
@@ -46,11 +51,11 @@ const HomeView = () => {
 
       <Grid container spacing={2}>
 
-        <CategoryComponent />
+       {!mobile() && <CategoryComponent /> }
 
-        <Grid item xs={8}>
+        <Grid item xs={12} sm={8} md={12}>
 
-          <Grid container spacing={{ xs: 2, md: 4 }} 
+          <Grid container spacing={{ xs: 0, md: 4 }} 
               
               justifyContent="center" >
             {
@@ -58,7 +63,7 @@ const HomeView = () => {
           products.map((product, index) =>  {
             return (
 
-          <Grid container justifyContent="center" item xs={2} sm={4} md={3} key={index}>
+          <Grid container justifyContent="center" item xs={12} sm={6} md={3} key={index}>
             <Card key={index} sx={{ maxWidth: 200}}>   
               <CardActionArea href={`/product/${product.id}`}>
                 <CardMedia
