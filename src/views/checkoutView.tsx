@@ -44,7 +44,7 @@ const CheckoutView = () => {
                   Delivery
                 </Grid>
                 <Grid item md={6}>
-                  $44.55
+                  $4.55
                 </Grid>
                 </Grid>   
               </ListItemText>
@@ -57,7 +57,7 @@ const CheckoutView = () => {
                 Service fee
                 </Grid>
                 <Grid item md={6}>
-                  $44.55
+                  $14.55
                 </Grid>
                 </Grid>   
               </ListItemText>
@@ -70,7 +70,7 @@ const CheckoutView = () => {
                 Total
                 </Grid>
                 <Grid item md={6}>
-                  $44.55
+                  $74.19
                 </Grid>
                 </Grid>   
               </ListItemText>

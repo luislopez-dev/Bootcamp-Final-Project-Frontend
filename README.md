@@ -6,26 +6,29 @@
 * [Technology](#technology)
 * [Cloud infrastructure](cloud-infrastructure)
 * [Run](#run)
-* [License](#license)
 
 ## Introduction
 
-El siguiente proyecto es una aplicación web de productos utilizando la arquitectura Modelo Vista Controlador.
-Segundo proyecto del Bootcamp React / Ruby on Rails.
+Web Items is an e-commerce site created to offer different supermarket products online. At the same time, it is the final project of the Ruby ​​on rails/React bootcamp. This repository contains the frontend part of web-items.com. 
 
 ## Technology
 
-* ruby 2.7.0
-* Rails 6.1.5
-* pg (postgres) 1.1
-* Bootstrap 5
+* React 18.1.0
+* React-Redux 8.0.2
+* Typescript 4.7.3
+* Material UI 5.8.3
 
 ## Cloud infrastructure
 
-## Run:
+## Content sample
 
-1. Clone el repositorio
-2. Diríjase a la carpeta raíz del proyecto e instale las dependencias a través de los siguientes comandos:  `bundle install` y `yarn install`
+![Home page](https://i.imgur.com/qF44YHm.png)
+![Favorite menu](https://i.imgur.com/Cj9EyNi.png)
+![Favorite menu](https://i.imgur.com/Cj9EyNi.png)
+![Favorite menu](https://i.imgur.com/2oZChAo.png)
+![Favorite menu](https://i.imgur.com/98G5wop.png)
+![Favorite menu](https://i.imgur.com/RnEWUfs.png)
+![Checkout page](https://i.imgur.com/DW1wGYG.png)
 
 ## Other bootcamp projects: 
 
