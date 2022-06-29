@@ -1,4 +1,5 @@
 import { Alert, Button, Card, Grid, List, ListItem, ListItemText, Typography } from "@mui/material";
+import { useSelector } from "react-redux";
 import AddressField from "../components/checkout/addressField";
 import EmailField from "../components/checkout/emailField";
 import NameField from "../components/checkout/nameField";
@@ -6,6 +7,21 @@ import PaymentField from "../components/checkout/paymentField";
 import PhoneField from "../components/checkout/phoneField";
 
 const CheckoutView = () => {
+
+  const cart = useSelector((state:any) => state.counter.cart);
+
+  const subTotal = convertToDecimal(cart.reduce((a:any,b:any) => + a + + (b.price * b.count), 0));
+  const delivery = 14.50;
+  const serviceFee = 5.95;
+  const total = (delivery + serviceFee + subTotal).toFixed(2);
+
+  function convertToDecimal(num:number) {
+    return Math.round((num + Number.EPSILON) * 100) / 100
+  }
+
+  // const total = (Math.round(( products.reduce((a,b) => + a + + (b.price * b.count), 0) + Number.EPSILON ) * 100 ) / 100) || 0;
+
+
 
     return (
     <>
@@ -31,7 +47,7 @@ const CheckoutView = () => {
                   Item subtotal
                   </Grid>
                   <Grid item md={6}>
-                  $44.55
+                  ${subTotal}
                   </Grid>
                 </Grid>                       
               </ListItemText>
@@ -44,7 +60,7 @@ const CheckoutView = () => {
                   Delivery
                 </Grid>
                 <Grid item md={6}>
-                  $4.55
+                  ${delivery}
                 </Grid>
                 </Grid>   
               </ListItemText>
@@ -57,7 +73,7 @@ const CheckoutView = () => {
                 Service fee
                 </Grid>
                 <Grid item md={6}>
-                  $14.55
+                  ${serviceFee}
                 </Grid>
                 </Grid>   
               </ListItemText>
@@ -70,7 +86,7 @@ const CheckoutView = () => {
                 Total
                 </Grid>
                 <Grid item md={6}>
-                  $74.19
+                  ${total}
                 </Grid>
                 </Grid>   
               </ListItemText>
