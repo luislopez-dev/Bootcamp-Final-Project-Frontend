@@ -4,6 +4,7 @@
 
 * [Introduction](#introduction)
 * [Technology](#technology)
+* [Project execution](#project-execution)
 * [Cloud infrastructure](#cloud-infrastructure)
 * [Content sample](#content-sample)
 ## Introduction
@@ -16,6 +17,12 @@ Web Items is an e-commerce site created to offer different supermarket products 
 * React-Redux 8.0.2
 * Typescript 4.7.3
 * Material UI 5.8.3
+
+## Project execution
+
+1. Clone this repository
+2. Install the project dependencies by running `npm install`
+3. For development and testing purposes start the project by running the following command: `npm start`, for production enviroments create an optimized build of the project by running `npm build` and then deploy the generated files.
 
 ## Cloud infrastructure
 ![Cloud infrastructure](https://lucid.app/publicSegments/view/470c1dd9-0d51-4b3c-bce5-b426de35ec79/image.png)
