@@ -53,7 +53,7 @@ const HomeView = () => {
 
        {!mobile() && <CategoryComponent /> }
 
-        <Grid item xs={12} sm={8} md={12}>
+        <Grid item xs={12} sm={8} md={8}>
 
           <Grid container spacing={{ xs: 0, md: 4 }} 
               

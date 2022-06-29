@@ -19,7 +19,7 @@ const CategoryComponent = () => {
 				<SortField />
 			</ListItem>
 			{categories.map ((ele, index) => 
-				<ListItemButton key={index}>
+				<ListItemButton href={`/home?category=${ele}`} key={index}>
 					<ListItemText>{ele}</ListItemText>
 				</ListItemButton>
 			)}

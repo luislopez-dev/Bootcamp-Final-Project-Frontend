@@ -58,15 +58,17 @@ const NavBarComponent = () => {
             <img width="160px" src={logo} />
           </Button>
 
-          <Search >
+          <form action="/home">
+          <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
-            <StyledInputBase
+            <StyledInputBase              
               placeholder="Search for product..."
-              inputProps={{ 'aria-label': 'search' }}
+              inputProps={{ 'aria-label': 'search', 'name':'search' }}
             />
           </Search>
+          </form>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{  flexGrow: 0.3, display: { xs: 'none', md: 'flex' } }}>
             <FavoriteMenu />
